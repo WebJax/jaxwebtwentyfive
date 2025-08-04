@@ -1,0 +1,481 @@
+/*
+Theme Name: Jaxweb Twenty Five
+Description: A modern, responsive WordPress block theme designed for web agencies and creative professionals. Features clean design, elegant typography, and comprehensive block patterns.
+Version: 1.0.0
+Author: Jaxweb
+Text Domain: jaxwebtwentyfive
+Requires at least: 6.0
+Tested up to: 6.4
+Requires PHP: 8.0
+License: GPL v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+*/
+
+/* ============================================================================
+   CSS Custom Properties (Variables)
+   ========================================================================== */
+
+:root {
+  /* Colors */
+  --color-primary: #0D1B2A;
+  --color-complementary: #FF6B35;
+  --color-white: #FFFFFF;
+  --color-gray-1: #F5F7FA;
+  --color-gray-5: #5E6369;
+  
+  /* Typography */
+  --font-family-primary: 'Inter', sans-serif;
+  --font-size-base: 1rem;
+  --line-height-base: 1.6;
+  
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+  --spacing-2xl: 4rem;
+  --spacing-3xl: 6rem;
+  --spacing-4xl: 8rem;
+  
+  /* Shadows */
+  --shadow-natural: 0 1px 3px rgba(13, 27, 42, 0.12), 0 1px 2px rgba(13, 27, 42, 0.24);
+  --shadow-elevated: 0 10px 25px rgba(13, 27, 42, 0.15), 0 4px 10px rgba(13, 27, 42, 0.1);
+  --shadow-floating: 0 20px 40px rgba(13, 27, 42, 0.2), 0 8px 16px rgba(13, 27, 42, 0.15);
+  
+  /* Border radius */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  
+  /* Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-base: 0.3s ease;
+  --transition-slow: 0.5s ease;
+}
+
+/* ============================================================================
+   Base Styles
+   ========================================================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  color: var(--color-primary);
+  background-color: var(--color-white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ============================================================================
+   Typography Improvements
+   ========================================================================== */
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: var(--spacing-md);
+  color: var(--color-primary);
+}
+
+p {
+  margin-bottom: var(--spacing-md);
+}
+
+a {
+  color: var(--color-complementary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: #CC5229;
+}
+
+/* ============================================================================
+   Button Enhancements
+   ========================================================================== */
+
+.wp-block-button__link {
+  border-radius: var(--radius-md) !important;
+  font-weight: 600;
+  padding: 0.875rem 2rem !important;
+  transition: all var(--transition-base);
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.wp-block-button__link:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-elevated);
+}
+
+.wp-block-button.is-style-outline .wp-block-button__link:hover {
+  background-color: var(--color-complementary) !important;
+  border-color: var(--color-complementary) !important;
+  color: white !important;
+}
+
+/* ============================================================================
+   Form Styling
+   ========================================================================== */
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="url"],
+input[type="password"],
+select,
+textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid #E1E4E8;
+  border-radius: var(--radius-sm);
+  font-size: 1rem;
+  font-family: var(--font-family-primary);
+  transition: border-color var(--transition-fast);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--color-complementary);
+  box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+/* ============================================================================
+   Custom Block Styles
+   ========================================================================== */
+
+/* Group blocks with better spacing */
+.wp-block-group {
+  margin-bottom: var(--spacing-lg);
+}
+
+/* Image blocks with better styling */
+.wp-block-image {
+  margin-bottom: var(--spacing-lg);
+}
+
+.wp-block-image img {
+  height: auto;
+  max-width: 100%;
+  border-radius: var(--radius-sm);
+}
+
+/* Columns with better spacing */
+.wp-block-columns {
+  margin-bottom: var(--spacing-lg);
+}
+
+/* Quote blocks */
+.wp-block-quote {
+  border-left: 4px solid var(--color-complementary);
+  padding-left: var(--spacing-lg);
+  margin: var(--spacing-xl) 0;
+  font-style: italic;
+}
+
+.wp-block-quote p {
+  font-size: 1.125rem;
+  color: var(--color-gray-5);
+}
+
+.wp-block-quote cite {
+  display: block;
+  margin-top: var(--spacing-sm);
+  font-style: normal;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+/* List styles */
+.wp-block-list {
+  margin-bottom: var(--spacing-lg);
+}
+
+.wp-block-list li {
+  margin-bottom: 0.5rem;
+}
+
+/* Separator blocks */
+.wp-block-separator {
+  border: none;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--color-gray-1), transparent);
+  margin: var(--spacing-xl) 0;
+}
+
+/* ============================================================================
+   Contact Form Enhancements
+   ========================================================================== */
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.contact-form button[type="submit"] {
+  background: var(--color-complementary);
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: 1.125rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  font-family: var(--font-family-primary);
+}
+
+.contact-form button[type="submit"]:hover {
+  background: #CC5229;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-elevated);
+}
+
+/* ============================================================================
+   Navigation Enhancements
+   ========================================================================== */
+
+.wp-block-navigation-link__content {
+  transition: color var(--transition-fast);
+}
+
+.wp-block-navigation-link:hover .wp-block-navigation-link__content {
+  color: var(--color-complementary);
+}
+
+/* ============================================================================
+   Utility Classes
+   ========================================================================== */
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.gap-sm {
+  gap: var(--spacing-sm);
+}
+
+.gap-md {
+  gap: var(--spacing-md);
+}
+
+.gap-lg {
+  gap: var(--spacing-lg);
+}
+
+/* Margin utilities */
+.mt-0 { margin-top: 0; }
+.mt-sm { margin-top: var(--spacing-sm); }
+.mt-md { margin-top: var(--spacing-md); }
+.mt-lg { margin-top: var(--spacing-lg); }
+.mt-xl { margin-top: var(--spacing-xl); }
+
+.mb-0 { margin-bottom: 0; }
+.mb-sm { margin-bottom: var(--spacing-sm); }
+.mb-md { margin-bottom: var(--spacing-md); }
+.mb-lg { margin-bottom: var(--spacing-lg); }
+.mb-xl { margin-bottom: var(--spacing-xl); }
+
+/* Padding utilities */
+.p-sm { padding: var(--spacing-sm); }
+.p-md { padding: var(--spacing-md); }
+.p-lg { padding: var(--spacing-lg); }
+.p-xl { padding: var(--spacing-xl); }
+
+/* ============================================================================
+   Animation Classes
+   ========================================================================== */
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scale-on-hover {
+  transition: transform var(--transition-base);
+}
+
+.scale-on-hover:hover {
+  transform: scale(1.05);
+}
+
+/* ============================================================================
+   Responsive Design
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  :root {
+    --spacing-xl: 2rem;
+    --spacing-2xl: 3rem;
+    --spacing-3xl: 4rem;
+    --spacing-4xl: 5rem;
+  }
+  
+  .wp-block-columns {
+    flex-direction: column;
+  }
+  
+  .wp-block-column {
+    flex-basis: 100% !important;
+    margin-bottom: var(--spacing-lg);
+  }
+  
+  .contact-form > div {
+    flex-direction: column;
+  }
+  
+  .contact-form > div > div {
+    flex: 1 !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .wp-block-button__link {
+    padding: 0.75rem 1.5rem !important;
+    font-size: 0.875rem;
+  }
+  
+  h1 {
+    font-size: 2rem;
+  }
+  
+  h2 {
+    font-size: 1.75rem;
+  }
+  
+  h3 {
+    font-size: 1.5rem;
+  }
+}
+
+/* ============================================================================
+   Print Styles
+   ========================================================================== */
+
+@media print {
+  * {
+    background: transparent !important;
+    color: black !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+  
+  .wp-block-button,
+  .contact-form,
+  .wp-block-social-links {
+    display: none;
+  }
+}
+
+/* ============================================================================
+   Accessibility Improvements
+   ========================================================================== */
+
+/* Focus styles */
+*:focus {
+  outline: 2px solid var(--color-complementary);
+  outline-offset: 2px;
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: var(--color-primary);
+  color: white;
+  padding: 8px 16px;
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  z-index: 1000;
+}
+
+.skip-link:focus {
+  top: 6px;
+}
+
+/* Screen reader text */
+.screen-reader-text {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  :root {
+    --color-gray-1: #F0F0F0;
+    --color-gray-5: #404040;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

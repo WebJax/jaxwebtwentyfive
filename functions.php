@@ -32,6 +32,9 @@ function jaxwebtwentyfive_setup() {
     // Add support for full and wide align images
     add_theme_support('align-wide');
     
+    // Enable block patterns
+    add_theme_support('block-patterns');
+    
     // Add support for custom logo
     add_theme_support('custom-logo', array(
         'height'      => 100,
@@ -142,6 +145,24 @@ function jaxwebtwentyfive_register_patterns() {
     );
 }
 add_action('init', 'jaxwebtwentyfive_register_patterns');
+
+// Helper function for example images
+function jaxwebtwentyfive_get_example_image($type = 'general', $width = 400, $height = 300) {
+    $base_url = get_template_directory_uri() . '/assets/images/examples/';
+    
+    // Fallback til online billeder hvis lokale ikke eksisterer
+    $fallback_images = array(
+        'hero' => "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w={$width}&h={$height}&fit=crop&crop=center",
+        'portfolio' => "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w={$width}&h={$height}&fit=crop&crop=center", 
+        'team' => "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w={$width}&h={$height}&fit=crop&crop=face",
+        'business' => "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w={$width}&h={$height}&fit=crop&crop=center",
+        'tech' => "https://images.unsplash.com/photo-1518709268805-4e9042af2176?w={$width}&h={$height}&fit=crop&crop=center",
+        'contact' => "https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w={$width}&h={$height}&fit=crop&crop=center",
+        'general' => "https://picsum.photos/seed/jaxweb{$type}/{$width}/{$height}"
+    );
+    
+    return isset($fallback_images[$type]) ? $fallback_images[$type] : $fallback_images['general'];
+}
 
 // Customize block editor
 function jaxwebtwentyfive_editor_customization() {

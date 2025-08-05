@@ -55,6 +55,395 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 }
 
 /* ============================================================================
+   Pattern Components
+   ========================================================================== */
+
+/* Team Member Cards */
+.team-member {
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  transition: var(--transition-base);
+  box-shadow: var(--shadow-natural);
+}
+
+.team-member:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-elevated);
+}
+
+.team-member img {
+  border-radius: 50% !important;
+  width: 120px !important;
+  height: 120px !important;
+  object-fit: cover !important;
+  transition: var(--transition-base);
+}
+
+.team-member .wp-block-image img {
+  border-radius: 50% !important;
+  width: 120px !important;
+  height: 120px !important;
+  object-fit: cover !important;
+}
+
+.member-avatar img {
+  border-radius: 50% !important;
+  width: 120px !important;
+  height: 120px !important;
+  object-fit: cover !important;
+  transition: var(--transition-base);
+}
+
+.team-member:hover img,
+.team-member:hover .member-avatar img {
+  transform: scale(1.05);
+}
+
+.team-member h3,
+.member-name {
+  margin-top: var(--spacing-md);
+  margin-bottom: var(--spacing-xs);
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.team-member .member-title {
+  margin-bottom: var(--spacing-sm);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.team-member .member-description {
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+/* Portfolio Items */
+.portfolio-item {
+  border-radius: var(--radius-lg);
+  padding-bottom: var(--spacing-lg);
+}
+
+.portfolio-item img {
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.portfolio-item h3 {
+  margin-bottom: var(--spacing-xs);
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.portfolio-item .project-description {
+  margin-bottom: var(--spacing-sm);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.portfolio-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs);
+}
+
+.portfolio-tag {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-lg);
+}
+
+/* Feature Cards */
+.feature-card {
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  text-align: center;
+  transition: var(--transition-base);
+  box-shadow: var(--shadow-natural);
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-elevated);
+}
+
+.feature-card .icon {
+  font-size: 3rem;
+  margin-bottom: var(--spacing-sm);
+  transition: var(--transition-base);
+}
+
+.feature-card:hover .icon {
+  transform: scale(1.1);
+}
+
+.feature-card h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: var(--spacing-sm);
+}
+
+.feature-card .description {
+  line-height: 1.6;
+}
+
+/* Testimonial Cards */
+.testimonial-card {
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+}
+
+.testimonial-text {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  margin-bottom: var(--spacing-md);
+}
+
+.testimonial-author img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  margin-right: var(--spacing-sm);
+}
+
+.testimonial-author-name {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.testimonial-author-title {
+  font-size: 0.875rem;
+}
+
+/* FAQ Items */
+.faq-item {
+  padding: var(--spacing-md) 0;
+  margin-bottom: var(--spacing-sm);
+  border-bottom: 1px solid #E5E7EB;
+}
+
+.faq-question {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: var(--spacing-sm);
+}
+
+.faq-answer {
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+/* Statistics */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-lg);
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: var(--spacing-xs);
+}
+
+.stat-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* Hero Sections */
+.hero-title {
+  font-size: 3.75rem;
+  font-weight: 700;
+  line-height: 1.1;
+  text-align: center;
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  margin-top: var(--spacing-lg);
+  margin-bottom: var(--spacing-xl);
+  text-align: center;
+}
+
+/* CTA Sections */
+.cta-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.cta-description {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  margin-top: var(--spacing-lg);
+  margin-bottom: var(--spacing-xl);
+  text-align: center;
+}
+
+/* Section Headers */
+.section-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.section-subtitle {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  margin-top: var(--spacing-md);
+  margin-bottom: var(--spacing-xl);
+  text-align: center;
+}
+
+/* Contact Forms */
+.contact-form {
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+}
+
+.contact-info {
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+}
+
+/* Portfolio Components */
+.portfolio-item {
+  border-radius: 1rem;
+  padding: 0 0 2rem 0;
+  transition: var(--transition-base);
+  overflow: hidden;
+}
+
+.portfolio-image {
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  margin-bottom: 0;
+}
+
+.portfolio-content {
+  padding: 1.5rem 2rem 0 2rem;
+}
+
+.project-title {
+  font-size: 1.25rem !important;
+  font-weight: 600 !important;
+  margin-bottom: 0.5rem !important;
+}
+
+.project-description {
+  font-size: 0.875rem !important;
+  line-height: 1.5 !important;
+  margin-bottom: 1rem !important;
+}
+
+.project-tags {
+  gap: 0.5rem;
+}
+
+.project-tag {
+  border-radius: 1rem;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  margin: 0;
+}
+
+.button-wrapper {
+  margin-top: 3rem;
+}
+
+/* Testimonial Components */
+.testimonial-quote {
+  font-size: 2rem !important;
+  line-height: 1 !important;
+  margin-bottom: 0.5rem !important;
+}
+
+.testimonial-text {
+  font-size: 1rem !important;
+  line-height: 1.6 !important;
+  font-style: italic !important;
+  margin-top: 0 !important;
+  margin-bottom: 1.5rem !important;
+}
+
+.testimonial-avatar img {
+  border-radius: 50% !important;
+  width: 60px !important;
+  height: 60px !important;
+  object-fit: cover !important;
+}
+
+.stats-wrapper {
+  margin-top: 2rem;
+}
+
+.stats-grid {
+  gap: 3rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .section-title {
+    font-size: 1.875rem;
+  }
+  
+  .cta-title {
+    font-size: 2rem;
+  }
+  
+  .team-member,
+  .feature-card,
+  .portfolio-item,
+  .testimonial-card {
+    padding: var(--spacing-md);
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: var(--spacing-md);
+  }
+}
+
+/* Utility Classes */
+.text-center {
+  text-align: center;
+}
+
+.mb-0 { margin-bottom: 0; }
+.mb-1 { margin-bottom: var(--spacing-xs); }
+.mb-2 { margin-bottom: var(--spacing-sm); }
+.mb-3 { margin-bottom: var(--spacing-md); }
+.mb-4 { margin-bottom: var(--spacing-lg); }
+.mb-5 { margin-bottom: var(--spacing-xl); }
+
+.mt-0 { margin-top: 0; }
+.mt-1 { margin-top: var(--spacing-xs); }
+.mt-2 { margin-top: var(--spacing-sm); }
+.mt-3 { margin-top: var(--spacing-md); }
+.mt-4 { margin-top: var(--spacing-lg); }
+.mt-5 { margin-top: var(--spacing-xl); }
+
+.p-0 { padding: 0; }
+.p-1 { padding: var(--spacing-xs); }
+.p-2 { padding: var(--spacing-sm); }
+.p-3 { padding: var(--spacing-md); }
+.p-4 { padding: var(--spacing-lg); }
+.p-5 { padding: var(--spacing-xl); }
+
+/* ============================================================================
    Base Styles
    ========================================================================== */
 
